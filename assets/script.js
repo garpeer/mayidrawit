@@ -7,9 +7,9 @@ Lerajzolhatom = function($, container){
         },
         questionfile: 'assets/questions.json'
     }
-    var questions;
-    var question = -1;
-    var answers = [];
+    
+    var Display;
+    var Question;
     
     container.append($('<button>').addClass('start').text('Kezdjük').click(function(){
         container.empty();
@@ -21,7 +21,7 @@ Lerajzolhatom = function($, container){
                 try{
                     if (data){
                         container.removeClass('waiting');
-                        initialize(data.questions);
+                        initialize(data.questions);  
                     }
                 }catch(e){
                     container.empty();
@@ -32,19 +32,34 @@ Lerajzolhatom = function($, container){
     }));
 
     var initialize = function(data){
-        var display = function(elem){
+        
+        
+        
+        
+        Display = function(elem){
             return {
-                display: function(item){
+                display: function(question, controls){
                     elem.empty();
-                    elem.html(item.question);
+                    elem.append(question);   
+                    if (controls){
+                        for (var i=0; i<= controls.length; i++){
+                            elem.append(controls[i]);
+                        }
+                    }
                 }
             }
         }(container);
+        
+        
+        
+        
+        
 
-        var question = function(display, data){
-            var current;
+        Question = function(display, data){
+            var current = -1;
             var questions = [];
             var i = -1;
+            var self = this;
             var parse_question = function(data, parent){
                 i++;
                 var id = i;
@@ -61,13 +76,34 @@ Lerajzolhatom = function($, container){
                 return id;
             };
             parse_question(data);
-
-//            console.log('questionlist:' ,questions);
-//            for (i in questions){
-//                console.log(i, questions[i])
-//            }            
             var get_question = function(id){
-                return questions[id];
+                var question = questions[id];
+                if (question === undefined){
+                    throw "invalid question id: "+id;
+                }
+                return question;
+            }
+            var show = function(item){
+                controls = [];
+                for (o in item){
+                    if (o != 'question'){
+                        if (o == 'parent'){
+                            if (item[o] !== undefined && item[o] >= 0){
+                                controls.push(
+                                    $('<button>').text('Vissza').click(function(e){
+                                        Question.back();
+                                    })
+                                ) 
+                            }
+                        }else{
+                            controls.push($('<button>').text(o).attr('value', o).click(function(e){                                
+                                Question.next($(this).attr('value'));
+                            }))
+                        }
+                    }
+                }
+                
+                display.display(item.question, controls);
             }
             return {
                 next: function(value){
@@ -76,23 +112,36 @@ Lerajzolhatom = function($, container){
                             child = get_question(0);
                         }else{
                             question = get_question(current);
-                            var child = question[value];
+                            var child = get_question(question[value]);
                         }
-                        if (child){     
+                        if (child !== undefined){     
                             current++;
-                            display.display(child);
+                            show(child);
                             return true;
                         }
                     }
                     throw "invalid question child: "+value;
                 },
                 back: function(){
-                    current--;
-                    display.display('prevy');
+                    var question = get_question(current);
+                    if (question.parent === undefined){
+                        throw "Question "+ current + " is orphan";
+                    }else{
+                        current--;
+                        show(get_question(question.parent));
+                        return true;
+                    }
                 }
             }
-        }(display, data)
-        question.next();
+        }(Display, data)
+        
+        
+        
+        Question.next();
+        
+        
+        
+        
     }
 
 
