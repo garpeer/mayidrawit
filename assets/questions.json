@@ -1,17 +1,60 @@
 {
     "questions" : {
-        "question": "Starting question",
+        "question": "A kép, amiről másolsz, Public Domain (PD) licensz alatt van?",
         "yep": {
-            "question": "First yep stage",
-            "yep": {
-                "question": "Second yep stage"
-            },
-            "nope": {
-                "question": "Second nope stage"
-            }
+            "question": "OKÉS",
+            "class": "success"
         },
         "nope": {
-            "question": "First nope stage"
+            "question": "A kép, amiről másolsz, Creative Commons (CC) licensz alatt van?",
+            "yep": {
+                "question": "Szerepel a licenszben a BY (attribute)?",
+                "yep": {
+                    "question": "Szerepel a licenszben az ND (no derivatives)?",
+                    "yep": {
+                        "question": "A szerző nem engedélyezi a képe átdoglozását, keress másik képet"
+                    },
+                    "nope": {
+                        "question": "Szerepel a licenszben az NC (no commercial)?"
+                    }
+                },
+                "nope": {
+                    "question": "OKÉS"
+                }
+            },
+            "nope": {
+                "question": "A kép eredeti alkotója engedélyezte a képe felhasználását?",
+                "yep": {
+                    "question": "OKÉS"
+                },
+                "nope": {
+                    "question": "A kép szerzője több, mint 70 évvel ezelőtt meghalt?",
+                    "yep": {
+                        "question": "OKÉS"
+                    },
+                    "nope": {
+                        "question": "100%-ig teljesen holtbizos, hogy nem használod fel sehol a képről készült rajzodat? (pl, kiállítás, eladás, elcserélés egy csokira, stb)",
+                        "yep": {
+                            "question": "Háttööö, legyen..."
+                        },
+                        "nope": {
+                            "question": "Kérsz a szerzőtől (vagy az örököstől) engedélyt?",
+                            "yep": {
+                                "question": "Megkaptad az engedélyt a felhasználásra?",
+                                "yep": {
+                                    "question": "Okés"
+                                },
+                                "nope": {
+                                    "question": "Keress másik képet"
+                                }
+                            },
+                            "nope": {
+                                "question": "Keress másik képet"
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

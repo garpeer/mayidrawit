@@ -38,13 +38,19 @@ Lerajzolhatom = function($, container){
         
         Display = function(elem){
             return {
-                display: function(question, controls){
+                display: function(item, controls){
                     elem.empty();
-                    elem.append(question);   
+                    elem.removeClass();
+                    if (item['class']){
+                        elem.addClass(item['class']);
+                    }
+                    elem.append(item.question);
                     if (controls){
+                        var controlbox = $('<div>').addClass('controls');
                         for (var i=0; i<= controls.length; i++){
-                            elem.append(controls[i]);
+                            controlbox.append(controls[i]);
                         }
+                        elem.append(controlbox);
                     }
                 }
             }
@@ -68,7 +74,11 @@ Lerajzolhatom = function($, container){
                     if (o == 'question'){
                         item.question = data[o];
                     }else{
-                        item[o] = parse_question(data[o], id);
+                        if (o == 'class'){
+                            item[o] = data[o];
+                        }else{
+                            item[o] = parse_question(data[o], id);
+                        }
                     }
                 }
                 item['parent'] = parent;
@@ -76,6 +86,9 @@ Lerajzolhatom = function($, container){
                 return id;
             };
             parse_question(data);
+//            for (i in questions){
+//                console.log(i, questions[i]);                
+//            }
             var get_question = function(id){
                 var question = questions[id];
                 if (question === undefined){
@@ -86,7 +99,7 @@ Lerajzolhatom = function($, container){
             var show = function(item){
                 controls = [];
                 for (o in item){
-                    if (o != 'question'){
+                    if (o != 'question' && o != 'class'){
                         if (o == 'parent'){
                             if (item[o] !== undefined && item[o] >= 0){
                                 controls.push(
@@ -103,19 +116,23 @@ Lerajzolhatom = function($, container){
                     }
                 }
                 
-                display.display(item.question, controls);
+                display.display(item, controls);
             }
             return {
                 next: function(value){
-                    if (value != 'question'){
+                    if (value != 'question' && value != 'class'){
+                        var id;
                         if (value === undefined){
                             child = get_question(0);
+                            id = 0;
                         }else{
                             question = get_question(current);
-                            var child = get_question(question[value]);
+                            id = question[value];
+                            var child = get_question(id);
+                            
                         }
                         if (child !== undefined){     
-                            current++;
+                            current = id;
                             show(child);
                             return true;
                         }
@@ -127,7 +144,7 @@ Lerajzolhatom = function($, container){
                     if (question.parent === undefined){
                         throw "Question "+ current + " is orphan";
                     }else{
-                        current--;
+                        current = question.parent;
                         show(get_question(question.parent));
                         return true;
                     }
