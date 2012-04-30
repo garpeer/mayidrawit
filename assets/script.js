@@ -39,7 +39,7 @@ Lerajzolhatom = function($, container){
             var current;
             var questions = [];
             var i = -1;
-            var parse_question = function(data){
+            var parse_question = function(data, parent){
                 i++;
                 var id = i;
                 var item = {}
@@ -47,13 +47,14 @@ Lerajzolhatom = function($, container){
                     if (o == 'question'){
                         item.question = data[o];
                     }else{
-                        item[o] = parse_question(data[o]);
+                        item[o] = parse_question(data[o], id);
                     }
                 }
+                item['parent'] = parent;
                 questions[id] = item;
                 return id;
             };
-            parse_question(data, -1);
+            parse_question(data);
 
             //console.log('questionlist:' ,questions);
             for (i in questions){
