@@ -1,22 +1,36 @@
-Lerajzolhatom = function(container){
+Lerajzolhatom = function($, container){
     var options = {
         classes: {
             yep: 'yep',
             nope: 'nope',
             other: 'other'
         },
-        questionfile: 'assets/questions.js'
+        questionfile: 'assets/questions.json'
     }
     var questions;
     var question = -1;
     var answers = [];
     container.append($('<button>').addClass('start').text('Kezdjük').click(function(){
-        proceed();
+        setup();
     }));
     
+    var setup = function(){
+        container.empty();
+        container.addClass('waiting');
+        $.ajax({
+            url: options.questionfile,
+            dataType: 'json',
+            success: function(data){
+                if (data){
+                    questions = process_questions(data);
+                    container.removeClass('waiting');
+                    proceed();
+                }
+            }
+        });
+    }
     var proceed = function(value){
         question++;
-        console.log(value + ' ' + question);
         display();
     }
     var back = function(){
@@ -25,7 +39,11 @@ Lerajzolhatom = function(container){
         display();
     }
     var display = function(){
-        
+        container.empty();
+    }
+    var error = function(){
+        container.empty();
+        console.log('ERROR');
     }
 };
-$(document).ready(Lerajzolhatom($('#container')));
+jQuery(document).ready(Lerajzolhatom(jQuery, $('#container')));
