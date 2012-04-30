@@ -1,56 +1,51 @@
 {
     "questions" : {
-        "question": "A kép, amiről másolsz, Public Domain (PD) licensz alatt van?",
-        "yep": {
-            "question": "OKÉS",
-            "class": "success"
+        "question": "A kép, amiről másolsz, Public Domain (PD, vagy CC0) licensz alatt van?",
+        "Igen": {
+            "question": "A public domainben lévő képek szabadon felhasználhatók bármilyen célra. Bár nem kötelező, illik jelezni a kép eredeti alkotóját.",
+            "state": "success"
         },
-        "nope": {
+        "Nem": {
             "question": "A kép, amiről másolsz, Creative Commons (CC) licensz alatt van?",
-            "yep": {
-                "question": "Szerepel a licenszben a BY (attribute)?",
-                "yep": {
-                    "question": "Szerepel a licenszben az ND (no derivatives)?",
-                    "yep": {
-                        "question": "A szerző nem engedélyezi a képe átdoglozását, keress másik képet"
-                    },
-                    "nope": {
-                        "question": "Szerepel a licenszben az NC (no commercial)?"
-                    }
+            "Igen": {
+                "question": "Szerepel a licenszben az ND (no derivatives)?",
+                "Igen": {
+                    "question": "A szerző nem engedélyezi a képe átdoglozását, keress másik képet",
+                    "status": "failed"
                 },
-                "nope": {
-                    "question": "OKÉS"
+                "Nem": {
+                    "question": "Szerepel a licenszben az NC (no commercial)?",
+                    "Igen": {
+                        "question": "Másolhatod, illetve átdolgozhatod a művet, de nem használhatod kereskedelmi célokra, és természetesen meg kell nevezned a mű eredeti alkotóját is. (Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.)",
+                        "status": "success"
+                    },
+                    "Nem": {
+                        "question": "Másolhatod, illetve átdolgozhatod a művet, de meg kell nevezned a mű eredeti alkotóját is.  (Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.)",
+                        "status": "success"
+                    }
                 }
             },
-            "nope": {
+            "Nem": {
                 "question": "A kép eredeti alkotója engedélyezte a képe felhasználását?",
-                "yep": {
-                    "question": "OKÉS"
+                "Igen": {
+                    "question": "Ha rendelkezel az alkotó engedélyével, természetesen lerajzolhatod a képet, de illik ilyenkor is linkelni az eredeti képet.",
+                    "status": "success"
                 },
-                "nope": {
+                "Nem": {
                     "question": "A kép szerzője több, mint 70 évvel ezelőtt meghalt?",
-                    "yep": {
-                        "question": "OKÉS"
+                    "Igen": {
+                        "question": "A szerző halála után 70 évvel a művei szabad felhasználásúvá válnak, így te is szabadon felhasználhatod őket. Az eredeti alkotót mindenesetre illik megnevezni.",
+                        "status": "success"
                     },
-                    "nope": {
+                    "Nem": {
                         "question": "100%-ig teljesen holtbizos, hogy nem használod fel sehol a képről készült rajzodat? (pl, kiállítás, eladás, elcserélés egy csokira, stb)",
-                        "yep": {
-                            "question": "Háttööö, legyen..."
+                        "Igen": {
+                            "question": "A szerzői jogi törvény lehetőséget biztosít neked, hogy személyes használatra lemásold a képet, de csak és kizárólag akkor, ha ez sem közvetlenül, sem közvetve nem szolgál anyagi érdekeket.",
+                            "status": "allowed"
                         },
-                        "nope": {
-                            "question": "Kérsz a szerzőtől (vagy az örököstől) engedélyt?",
-                            "yep": {
-                                "question": "Megkaptad az engedélyt a felhasználásra?",
-                                "yep": {
-                                    "question": "Okés"
-                                },
-                                "nope": {
-                                    "question": "Keress másik képet"
-                                }
-                            },
-                            "nope": {
-                                "question": "Keress másik képet"
-                            }
+                        "Nem": {
+                            "question": "Keress másik képet!",
+                            "status": "failed"
                         }
                     }
                 }

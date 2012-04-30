@@ -1,10 +1,5 @@
 Lerajzolhatom = function($, container){
-    var options = {
-        classes: {
-            yep: 'yep',
-            nope: 'nope',
-            other: 'other'
-        },
+    var options = {        
         questionfile: 'assets/questions.json'
     }
     
@@ -18,15 +13,15 @@ Lerajzolhatom = function($, container){
             url: options.questionfile,
             dataType: 'json',
             success: function(data){
-                try{
+                //try{
                     if (data){
                         container.removeClass('waiting');
                         initialize(data.questions);  
                     }
-                }catch(e){
-                    container.empty();
-                    container.text('ERROR: '+ e);
-                }
+//                }catch(e){
+//                    container.empty();
+//                    container.text('ERROR: '+ e);
+//                }
             }
         });
     }));
@@ -41,8 +36,8 @@ Lerajzolhatom = function($, container){
                 display: function(item, controls){
                     elem.empty();
                     elem.removeClass();
-                    if (item['class']){
-                        elem.addClass(item['class']);
+                    if (item['state']){
+                        elem.addClass(item['state']);
                     }
                     elem.append(item.question);
                     if (controls){
@@ -74,9 +69,9 @@ Lerajzolhatom = function($, container){
                     if (o == 'question'){
                         item.question = data[o];
                     }else{
-                        if (o == 'class'){
+                        if (typeof(data[o]) != 'object'){
                             item[o] = data[o];
-                        }else{
+                        }else{                            
                             item[o] = parse_question(data[o], id);
                         }
                     }
@@ -99,7 +94,7 @@ Lerajzolhatom = function($, container){
             var show = function(item){
                 controls = [];
                 for (o in item){
-                    if (o != 'question' && o != 'class'){
+                    if (o != 'question' && o != 'state'){
                         if (o == 'parent'){
                             if (item[o] !== undefined && item[o] >= 0){
                                 controls.push(
@@ -120,7 +115,7 @@ Lerajzolhatom = function($, container){
             }
             return {
                 next: function(value){
-                    if (value != 'question' && value != 'class'){
+                    if (value != 'question' && value != 'state'){
                         var id;
                         if (value === undefined){
                             child = get_question(0);

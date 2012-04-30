@@ -39,6 +39,3 @@ h1 a{
 #container.waiting{
     background-color: red;
 }
-#container.success{
-    color: green;
-}
