@@ -20,6 +20,9 @@ a{
     text-decoration: none;
     outline: none;
 }
+button{
+    cursor: pointer;
+}
 a:focus,
 a:hover{
     text-decoration: underline;

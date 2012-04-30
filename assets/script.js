@@ -11,10 +11,6 @@ Lerajzolhatom = function($, container){
     var question = -1;
     var answers = [];
     container.append($('<button>').addClass('start').text('Kezdjük').click(function(){
-        setup();
-    }));
-    
-    var setup = function(){
         container.empty();
         container.addClass('waiting');
         $.ajax({
@@ -22,28 +18,46 @@ Lerajzolhatom = function($, container){
             dataType: 'json',
             success: function(data){
                 if (data){
-                    questions = process_questions(data);
                     container.removeClass('waiting');
-                    proceed();
+                    initialize(data);
                 }
             }
         });
+    }));
+
+    var initialize = function(data){
+        var display = function(elem){
+            return {
+                display: function(content){
+                    console.log(content);
+                    elem.empty();
+                    elem.html(content);
+                },
+            }
+        }(container);
+
+        var question = function(display, data){
+            var current;
+            var questions = data;            
+            var get_text = function(){
+                return 'X';
+            }
+            return {
+                next: function(value){
+                    current++;
+                    console.log(value);
+                    display.display('nexty');
+                },
+                back: function(){
+                    current--;
+                    display.display('prevy');
+                }
+            }
+        }(display, data)
+        question.next();
     }
-    var proceed = function(value){
-        question++;
-        display();
-    }
-    var back = function(){
-        question--;
-        console.log(question);
-        display();
-    }
-    var display = function(){
-        container.empty();
-    }
-    var error = function(){
-        container.empty();
-        console.log('ERROR');
-    }
+
+
+
 };
 jQuery(document).ready(Lerajzolhatom(jQuery, $('#container')));
