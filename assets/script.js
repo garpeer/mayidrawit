@@ -10,6 +10,7 @@ Lerajzolhatom = function($, container){
     var questions;
     var question = -1;
     var answers = [];
+    
     container.append($('<button>').addClass('start').text('Kezdjük').click(function(){
         container.empty();
         container.addClass('waiting');
@@ -17,9 +18,14 @@ Lerajzolhatom = function($, container){
             url: options.questionfile,
             dataType: 'json',
             success: function(data){
-                if (data){
-                    container.removeClass('waiting');
-                    initialize(data.questions);
+                try{
+                    if (data){
+                        container.removeClass('waiting');
+                        initialize(data.questions);
+                    }
+                }catch(e){
+                    container.empty();
+                    container.text('ERROR: '+ e);
                 }
             }
         });
@@ -28,10 +34,10 @@ Lerajzolhatom = function($, container){
     var initialize = function(data){
         var display = function(elem){
             return {
-                display: function(content){
+                display: function(item){
                     elem.empty();
-                    elem.html(content);
-                },
+                    elem.html(item.question);
+                }
             }
         }(container);
 
@@ -56,17 +62,29 @@ Lerajzolhatom = function($, container){
             };
             parse_question(data);
 
-            //console.log('questionlist:' ,questions);
-            for (i in questions){
-                console.log(i, questions[i])
-            }
-            var get_text = function(){
-                return 'X';
+//            console.log('questionlist:' ,questions);
+//            for (i in questions){
+//                console.log(i, questions[i])
+//            }            
+            var get_question = function(id){
+                return questions[id];
             }
             return {
                 next: function(value){
-                    current++;
-                    display.display('nexty');
+                    if (value != 'question'){
+                        if (value === undefined){
+                            child = get_question(0);
+                        }else{
+                            question = get_question(current);
+                            var child = question[value];
+                        }
+                        if (child){     
+                            current++;
+                            display.display(child);
+                            return true;
+                        }
+                    }
+                    throw "invalid question child: "+value;
                 },
                 back: function(){
                     current--;
