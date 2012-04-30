@@ -19,7 +19,7 @@ Lerajzolhatom = function($, container){
             success: function(data){
                 if (data){
                     container.removeClass('waiting');
-                    initialize(data);
+                    initialize(data.questions);
                 }
             }
         });
@@ -29,7 +29,6 @@ Lerajzolhatom = function($, container){
         var display = function(elem){
             return {
                 display: function(content){
-                    console.log(content);
                     elem.empty();
                     elem.html(content);
                 },
@@ -38,14 +37,34 @@ Lerajzolhatom = function($, container){
 
         var question = function(display, data){
             var current;
-            var questions = data;            
+            var questions = [];
+            var i = -1;
+            var parse_question = function(data){
+                i++;
+                var id = i;
+                var item = {}
+                for (o in data){
+                    if (o == 'question'){
+                        item.question = data[o];
+                    }else{
+                        item[o] = parse_question(data[o]);
+                    }
+                }
+                questions[id] = item;
+                return id;
+            };
+            parse_question(data, -1);
+
+            //console.log('questionlist:' ,questions);
+            for (i in questions){
+                console.log(i, questions[i])
+            }
             var get_text = function(){
                 return 'X';
             }
             return {
                 next: function(value){
                     current++;
-                    console.log(value);
                     display.display('nexty');
                 },
                 back: function(){
