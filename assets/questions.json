@@ -10,7 +10,7 @@
             "yep": {
                 "question": "Szerepel a licenszben az ND (no derivatives)?",
                 "yep": {
-                    "question": "A szerző nem engedélyezi a képe átdoglozását, keress másik képet",
+                    "question": "A szerző nem engedélyezi a képe átdolgozását, keress másik képet",
                     "status": "failed"
                 },
                 "nope": {

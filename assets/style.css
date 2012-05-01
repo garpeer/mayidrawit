@@ -73,7 +73,7 @@ h1 a{
     min-width: 160px;
     padding: 10px;
     max-width: 500px;
-    min-height: 50px;
+    min-height: 55px;
     margin: 40px auto;
     font-size: 90%;
     color: #ddd;
@@ -90,7 +90,7 @@ h1 a{
     margin-top: 0;
 }
 #container.waiting{
-    background-color: red;
+    background: url(ajax-loader.gif) center no-repeat; /*http://ajaxload.info*/
 }
 #container.failed p{
     color:#f00;
