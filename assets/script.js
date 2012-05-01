@@ -6,25 +6,20 @@ Lerajzolhatom = function($, container){
     var Display;
     var Question;
     
-    container.append($('<button>').addClass('start').text('Kezdjük').click(function(){
+    container.append($("<div>").addClass('start-wrapper').append($('<button>').addClass('start').text('Kezdjük').click(function(){
         container.empty();
         container.addClass('waiting');
         $.ajax({
             url: options.questionfile,
             dataType: 'json',
             success: function(data){
-                //try{
                     if (data){
                         container.removeClass('waiting');
                         initialize(data.questions);  
                     }
-//                }catch(e){
-//                    container.empty();
-//                    container.text('ERROR: '+ e);
-//                }
             }
         });
-    }));
+    })));
 
     var initialize = function(data){
         
