@@ -26,7 +26,7 @@
                 }
             },
             "nope": {
-                "question": "A kép eredeti alkotója engedélyezte a képe felhasználását?",
+                "question": "A kép eredeti alkotója engedélyezte a képe felhasználását? (Jelezte egyértelműen, hogy szabadon felhasználható a műve? Megkerested emailben?)",
                 "yep": {
                     "question": "Ha rendelkezel az alkotó engedélyével, természetesen lerajzolhatod a képet, de illik ilyenkor is linkelni az eredeti képet.",
                     "status": "success"
