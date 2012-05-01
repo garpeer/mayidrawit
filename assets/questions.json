@@ -1,12 +1,12 @@
 {
     "questions" : {
-        "question": "A kép, amiről másolsz, Public Domain (PD, vagy CC0) licensz alatt van?",
+        "question": "A kép, amiről másolsz, Public Domain (PD, vagy CC0) licensz alatt van? <small>Ha nem tudod, inkább válaszd a nemet!</small>",
         "yep": {
             "question": "A public domainben lévő képek szabadon felhasználhatók bármilyen célra. <small>Bár nem kötelező, illik jelezni a kép eredeti alkotóját.</small>",
             "status": "success"
         },
         "nope": {
-            "question": "A kép, amiről másolsz, Creative Commons (CC) licensz alatt van?",
+            "question": "A kép, amiről másolsz, Creative Commons (CC) licensz alatt van? <small>Ha nem tudod, inkább válaszd a nemet!</small>",
             "yep": {
                 "question": "Szerepel a licenszben az ND (no derivatives)?",
                 "yep": {
