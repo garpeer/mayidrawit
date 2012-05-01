@@ -1,6 +1,6 @@
 Lerajzolhatom = function($, container){
     var options = {        
-        questionfile: 'assets/questions.json'
+        questionfile: 'assets/questions.json?v=2'
     }
     
     var Display;
