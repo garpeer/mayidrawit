@@ -1,7 +1,16 @@
-body{
-    background-color: #444;
+html, body {
     margin: 0;
+    padding: 0;
+    border: none;
+    min-height: 100%;
+}
+body{
     font-family: sans;
+   background-color: #444; 
+   background-image: url(images/bkg.png);
+   background-repeat: no-repeat;
+   background-position: top center;
+   
 }
 #header{
     background-color: #333;
@@ -229,6 +238,12 @@ button.nope:hover{
         margin: 10px auto;
         padding: 5px 10px;
     }  
+    #container.success,
+    #container.failed,
+    #container.allowed{
+        padding: 5px 10px 130px 10px;
+        background-position: bottom center;
+    }
     button{
         padding: 15px;        
     }
