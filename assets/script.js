@@ -151,7 +151,7 @@ Lerajzolhatom = function($, container){
                         }
                         if (child !== undefined){     
                             current = id;
-                            History.pushState({question:id}, "Question "+id, "?question="+id);
+                            History.pushState({question:id},null, "?question="+id);
                             show(child);
                             return true;
                         }
