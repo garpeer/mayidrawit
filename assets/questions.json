@@ -1,26 +1,26 @@
 {
     "questions" : {
-        "question": "A kép, amiről másolsz, Public Domain (PD, vagy CC0) licensz alatt van? <small>Ha nem tudod, inkább válaszd a nemet!</small>",
+        "question": "A kép, amiről másolsz, <span class='tooltip'>Public Domain<span class='tooltip-text'><img src='assets/images/public_domain_icons.png' alt='Public Domain jelzések'/></span></span> licensz alatt van? <small>Ha nem tudod, inkább válaszd a nemet!</small>",
         "yep": {
             "question": "A public domainben lévő képek szabadon felhasználhatók bármilyen célra. <small>Bár nem kötelező, illik jelezni a kép eredeti alkotóját.</small>",
             "status": "success"
         },
         "nope": {
-            "question": "A kép, amiről másolsz, Creative Commons (CC) licensz alatt van? <small>Ha nem tudod, inkább válaszd a nemet!</small>",
+            "question": "A kép, amiről másolsz, <span class='tooltip'>Creative Commons<span class='tooltip-text'><img src='assets/images/cc_icon.png' alt='Creative Commons ikon'/></span></span> licensz alatt van? <small>Ha nem tudod, inkább válaszd a nemet!</small>",
             "yep": {
-                "question": "Szerepel a licenszben az ND (no derivatives)?",
+                "question": "Szerepel a licenszben az <span class='tooltip'>ND <span class='tooltip-text'>No derivatives - Ne változtasd!<br /><img src='assets/images/nd.png' alt='CC-ND'/></span></span>?",
                 "yep": {
                     "question": "A szerző nem engedélyezi a képe átdolgozását, keress másik képet",
                     "status": "failed"
                 },
                 "nope": {
-                    "question": "Szerepel a licenszben az NC (no commercial)?",
+                    "question": "Szerepel a licenszben az <span class='tooltip'>NC <span class='tooltip-text'>No commercial - Ne add el!<br /><img src='assets/images/nc.png' alt='CC-NC'/></span></span>?",
                     "yep": {
-                        "question": "Másolhatod, illetve átdolgozhatod a művet, de nem használhatod kereskedelmi célokra, és természetesen meg kell nevezned a mű eredeti alkotóját is. <small>Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.</small>",
+                        "question": "Másolhatod, illetve átdolgozhatod a művet, de nem használhatod kereskedelmi célokra, és természetesen meg kell nevezned a mű eredeti alkotóját is. <small>Ha a licenszben szerepel az <span class='tooltip'>SA <span class='tooltip-text'>Share alike - Így add tovább!<br /><img src='assets/images/sa.png' alt='CC-SA'/></span></span>, akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.</small>",
                         "status": "success"
                     },
                     "nope": {
-                        "question": "Másolhatod, illetve átdolgozhatod a művet, de meg kell nevezned a mű eredeti alkotóját is.  <small>Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.</small>",
+                        "question": "Másolhatod, illetve átdolgozhatod a művet, de meg kell nevezned a mű eredeti alkotóját is.  <small>Ha a licenszben szerepel az <span class='tooltip'>SA <span class='tooltip-text'>Share alike - Így add tovább!<br /><img src='assets/images/sa.png' alt='CC-SA'/></span></span>, akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.</small>",
                         "status": "success"
                     }
                 }

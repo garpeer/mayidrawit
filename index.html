@@ -5,7 +5,12 @@
         <title>Lerajzolhatom? - Kockart.hu</title>
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" type="text/css" href="assets/style.css" />
-        <script type="text/javascript" src="assets/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            document.write(unescape("%3Cscript src='/assets/jquery-1.7.2.min.js' type='text/javascript'%3E%3C/script%3E"));
+        }
+        </script>
     </head>
     <body>
         <noscript>

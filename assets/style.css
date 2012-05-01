@@ -34,6 +34,37 @@ a{
     outline: none;
     color: #eee;
 }
+.tooltip{
+    position: relative;
+    border-bottom: 1px dotted #aaa;
+    cursor: help;
+}
+.tooltip-text{
+    font-size: 90%;
+    display: none;
+    position: absolute;
+    padding: 10px;
+    background-color: #000;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 0 0 5px #222;
+    top: 0;
+    left: 100%;
+    min-width: 100px;
+    white-space: pre;
+    text-align: center;
+    line-height: 120%;
+    z-index: 9000;
+}
+.tooltip img{
+    margin-top :5px;
+}
+.tooltip:hover .tooltip-text{
+    display: block;
+}
 button{
     position: relative;
     cursor: pointer;
@@ -52,6 +83,7 @@ button{
     background-image: -webkit-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
     background-image: -ms-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(89,89,89)),color-stop(1, rgb(107,107,107)));
+    z-index:0;
     
 }
 button:focus,
