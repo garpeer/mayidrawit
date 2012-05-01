@@ -5,8 +5,13 @@ Lerajzolhatom = function($, container){
     
     var Display;
     var Question;
+    var History = window.History;
     
     container.append($("<div>").addClass('start-wrapper').append($('<button>').addClass('start').text('Kezdjük').click(function(){
+        startup();
+    })));
+    
+    var startup = function(question){
         container.empty();
         container.addClass('waiting');
         $.ajax({
@@ -15,17 +20,25 @@ Lerajzolhatom = function($, container){
             success: function(data){
                     if (data){
                         container.removeClass('waiting');
-                        initialize(data.questions);  
+                        initialize(data.questions, question);  
                     }
             }
         });
-    })));
+    }
+    
+    if (History.enabled ) { 
+            var initial_state = History.getState();
+            if (initial_state.data.question>0){
+                startup(initial_state.data.question);
+            }
+            History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+                var State = History.getState(); // Note: We are using History.getState() instead of event.state
+                var q = State.data.question;
+                Question.jump(q);
+            });
+        }
 
-    var initialize = function(data){
-        
-        
-        
-        
+    var initialize = function(data, initial_question){
         Display = function(elem){
             return {
                 display: function(item, controls){
@@ -51,7 +64,7 @@ Lerajzolhatom = function($, container){
         
         
 
-        Question = function(display, data){
+        Question = function(display, data, History){
             var current = -1;
             var questions = [];
             var i = -1;
@@ -116,6 +129,14 @@ Lerajzolhatom = function($, container){
                 display.display(item, controls);
             }
             return {
+                jump: function(id){
+                    var question = get_question(id);
+                    if (question !== undefined){
+                        current = id;
+                        show(question);
+                        return true;                        
+                    }
+                },
                 next: function(value){
                     if (value != 'question' && value != 'status'){
                         var id;
@@ -130,6 +151,7 @@ Lerajzolhatom = function($, container){
                         }
                         if (child !== undefined){     
                             current = id;
+                            History.pushState({question:id}, "Question "+id, "?question="+id);
                             show(child);
                             return true;
                         }
@@ -143,18 +165,18 @@ Lerajzolhatom = function($, container){
                     }else{
                         current = question.parent;
                         show(get_question(question.parent));
+                        History.back();
                         return true;
                     }
                 }
             }
-        }(Display, data)
+        }(Display, data, History)
         
-        
-        
-        Question.next();
-        
-        
-        
+        if (initial_question === undefined){
+            Question.next();            
+        }else{
+            Question.jump(initial_question);
+        }
         
     }
 
