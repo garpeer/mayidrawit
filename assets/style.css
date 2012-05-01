@@ -124,6 +124,24 @@ h1 a{
 #container.waiting{
     background: url(ajax-loader.gif) center no-repeat; /*http://ajaxload.info*/
 }
+#container.failed{    
+    max-width: 380px;
+    padding-right: 130px;
+    min-height: 120px;
+    background: url(images/monsieur/stop.png) no-repeat right center;
+}
+#container.success{    
+    max-width: 380px;
+    padding-left: 130px;
+    min-height: 120px;
+    background: url(images/monsieur/palette.png) no-repeat left center;
+}
+#container.allowed{    
+    max-width: 380px;
+    padding-right: 130px;
+    min-height: 120px;
+    background: url(images/monsieur/reader.png) no-repeat right center;
+}
 #container.failed p{
     color:#f00;
     font-weight: bold;
