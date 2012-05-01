@@ -60,8 +60,8 @@ a{
     -webkit-border-radius: 10px;
     -o-border-radius: 10px;
     box-shadow: 0 0 5px #222;
-    top: 0;
-    left: 100%;
+    top: 110%;
+    left: 50%;
     min-width: 100px;
     white-space: pre;
     text-align: center;
@@ -252,5 +252,5 @@ button.nope:hover{
     }
     .start-wrapper button{
         padding: 20px 25px;
-    }
+    }    
 }
