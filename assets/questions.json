@@ -2,7 +2,7 @@
     "questions" : {
         "question": "A kép, amiről másolsz, Public Domain (PD, vagy CC0) licensz alatt van?",
         "yep": {
-            "question": "A public domainben lévő képek szabadon felhasználhatók bármilyen célra. Bár nem kötelező, illik jelezni a kép eredeti alkotóját.",
+            "question": "A public domainben lévő képek szabadon felhasználhatók bármilyen célra. <small>Bár nem kötelező, illik jelezni a kép eredeti alkotóját.</small>",
             "status": "success"
         },
         "nope": {
@@ -16,17 +16,17 @@
                 "nope": {
                     "question": "Szerepel a licenszben az NC (no commercial)?",
                     "yep": {
-                        "question": "Másolhatod, illetve átdolgozhatod a művet, de nem használhatod kereskedelmi célokra, és természetesen meg kell nevezned a mű eredeti alkotóját is. (Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.)",
+                        "question": "Másolhatod, illetve átdolgozhatod a művet, de nem használhatod kereskedelmi célokra, és természetesen meg kell nevezned a mű eredeti alkotóját is. <small>Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.</small>",
                         "status": "success"
                     },
                     "nope": {
-                        "question": "Másolhatod, illetve átdolgozhatod a művet, de meg kell nevezned a mű eredeti alkotóját is.  (Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.)",
+                        "question": "Másolhatod, illetve átdolgozhatod a művet, de meg kell nevezned a mű eredeti alkotóját is.  <small>Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.</small>",
                         "status": "success"
                     }
                 }
             },
             "nope": {
-                "question": "A kép eredeti alkotója engedélyezte a képe felhasználását? (Jelezte egyértelműen, hogy szabadon felhasználható a műve? Megkerested emailben?)",
+                "question": "A kép eredeti alkotója engedélyezte a képe felhasználását? <small>Jelezte egyértelműen, hogy szabadon felhasználható a műve? Megkerested emailben?</small>",
                 "yep": {
                     "question": "Ha rendelkezel az alkotó engedélyével, természetesen lerajzolhatod a képet, de illik ilyenkor is linkelni az eredeti képet.",
                     "status": "success"
@@ -38,7 +38,7 @@
                         "status": "success"
                     },
                     "nope": {
-                        "question": "100%-ig teljesen holtbizos, hogy nem használod fel sehol a képről készült rajzodat? (pl, kiállítás, eladás, elcserélés egy csokira, stb)",
+                        "question": "100%-ig teljesen holtbizos, hogy nem használod fel sehol a képről készült rajzodat? <small>(pl, kiállítás, eladás, elcserélés egy csokira, stb</small>",
                         "yep": {
                             "question": "A szerzői jogi törvény lehetőséget biztosít neked, hogy személyes használatra lemásold a képet, de csak és kizárólag akkor, ha ez sem közvetlenül, sem közvetve nem szolgál anyagi érdekeket.",
                             "status": "allowed"
