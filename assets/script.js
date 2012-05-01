@@ -42,19 +42,22 @@ Lerajzolhatom = function($, container){
         Display = function(elem){
             return {
                 display: function(item, controls){
-                    elem.empty();
-                    elem.removeClass();
-                    if (item['status']){
-                        elem.addClass(item['status']);
-                    }
-                    elem.append($("<p>").html(item.question));
-                    if (controls){
-                        var controlbox = $('<div>').addClass('controls');
-                        for (var i=0; i<= controls.length; i++){
-                            controlbox.append(controls[i]);
+		    elem.fadeOut(150, function(){
+                        elem.empty();
+                        elem.removeClass();
+                        if (item['status']){
+                            elem.addClass(item['status']);
                         }
-                        elem.append(controlbox);
-                    }
+                        elem.append($("<p>").html(item.question));
+                        if (controls){
+                            var controlbox = $('<div>').addClass('controls');
+                            for (var i=0; i<= controls.length; i++){
+                                controlbox.append(controls[i]);
+                            }
+                            elem.append(controlbox);
+                        }                    
+                        elem.fadeIn(150);
+                    });
                 }
             }
         }(container);
@@ -152,7 +155,7 @@ Lerajzolhatom = function($, container){
                         if (child !== undefined){     
                             current = id;
                             History.pushState({question:id},null, "?question="+id);
-                            show(child);
+                            //show(child);
                             return true;
                         }
                     }
@@ -164,7 +167,7 @@ Lerajzolhatom = function($, container){
                         throw "Question "+ current + " is orphan";
                     }else{
                         current = question.parent;
-                        show(get_question(question.parent));
+                        //show(get_question(question.parent));
                         History.back();
                         return true;
                     }
