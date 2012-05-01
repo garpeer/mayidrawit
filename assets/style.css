@@ -5,12 +5,12 @@ html, body {
     min-height: 100%;
 }
 body{
-    font-family: sans;
+   font-family: sans;
    background-color: #444; 
    background-image: url(images/bkg.png);
    background-repeat: no-repeat;
    background-position: top center;
-   
+   cursor: default;
 }
 #header{
     background-color: #333;
@@ -42,6 +42,7 @@ a{
     text-decoration: none;
     outline: none;
     color: #eee;
+    cursor: pointer;
 }
 .tooltip{
     position: relative;
@@ -188,6 +189,7 @@ h1 a{
     color:#f8f8f8;
 }
 #footer{
+    font-size: 85%;
     color:#666;
     min-width: 160px;
     padding: 10px;
@@ -234,7 +236,7 @@ button.nope:hover{
 }
 @media all and (max-width: 400px) {
     #container{
-        margin: 10px auto;
+        margin: 20px auto;
         padding: 5px 10px;
     }  
     #container.success,
