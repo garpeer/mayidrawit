@@ -8,6 +8,9 @@ body{
     border-bottom: 1px solid #000;    
     padding: 10px;
     box-shadow: 0 2px 10px #222;
+    -webkit-box-shadow: 0 2px 10px #222;
+    -moz-box-shadow: 0 2px 10px #222;
+    -o-box-shadow: 0 2px 10px #222;
 }
 h1{
     color: #aaa;
@@ -19,9 +22,34 @@ h1{
 a{    
     text-decoration: none;
     outline: none;
+    color: #eee;
 }
 button{
+    position: relative;
     cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #222;
+    background-color: #595959;
+    color: #000;
+    box-shadow: inset 1px 1px 1px #888, 0 0 5px #333;    
+    -webkit-box-shadow: inset 1px 1px 1px #888, 0 0 5px #333;
+    -moz-box-shadow: inset 1px 1px 1px #888, 0 0 5px #333;
+    -o-box-shadow: inset 1px 1px 1px #888, 0 0 5px #333;
+    background-image: linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(89,89,89)),color-stop(1, rgb(107,107,107)));
+    
+}
+button:focus,
+button:hover{
+   color:#f8f8f8; 
+}
+button:active{
+    top: 1px;
 }
 a:focus,
 a:hover{
@@ -32,10 +60,72 @@ h1 a{
     color: #aaa;
 }
 #container{
+    min-width: 160px;
+    padding: 10px;
     max-width: 500px;
     min-height: 50px;
-    margin: 50px auto;
+    margin: 40px auto;
+    font-size: 90%;
+    color: #ddd;
+    text-shadow: 1px 1px 1px #222;
+    -webkit-text-shadow: 1px 1px 1px #222;
+    -moz-text-shadow: 1px 1px 1px #222;
+    -o-text-shadow: 1px 1px 1px #222;
+}
+#container p{
+    margin-top: 0;
 }
 #container.waiting{
     background-color: red;
+}
+#footer{
+    color:#666;
+    min-width: 160px;
+    padding: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+    text-shadow: -1px -1px 1px #333;
+    -webkit-text-shadow: -1px -1px 1px #333;
+    -moz-text-shadow: -1px -1px 1px #333;
+    -o-text-shadow: -1px -1px 1px #333;
+}
+#footer a{    
+    color:#666;
+}
+.controls{
+    margin-top: 30px;
+    text-align: center;
+}
+.controls button{
+    margin: 0 15px;
+}
+button.yep,
+button.nope{    
+    text-shadow: -1px -1px 0 #333;
+    -webkit-text-shadow: -1px -1px 0 #333;
+    -moz-text-shadow: -1px -1px 0 #333;
+    -o-text-shadow: -1px -1px 0 #333;
+}
+button.yep{
+    font-weight: bold;
+    color: #44cc44;
+}
+button.yep:focus,
+button.yep:hover{
+    color: #44ff44;
+}
+button.nope{
+    font-weight: bold;
+    color: #dd4444;
+}
+button.nope:focus,
+button.nope:hover{
+    color: #ff4444;
+}
+@media all and (max-width: 400px) {
+    #container{
+        margin: 10px auto;
+        padding: 5px 10px;
+    }   
 }

@@ -36,10 +36,10 @@ Lerajzolhatom = function($, container){
                 display: function(item, controls){
                     elem.empty();
                     elem.removeClass();
-                    if (item['state']){
-                        elem.addClass(item['state']);
+                    if (item['status']){
+                        elem.addClass(item['status']);
                     }
-                    elem.append(item.question);
+                    elem.append($("<p>").html(item.question));
                     if (controls){
                         var controlbox = $('<div>').addClass('controls');
                         for (var i=0; i<= controls.length; i++){
@@ -94,7 +94,7 @@ Lerajzolhatom = function($, container){
             var show = function(item){
                 controls = [];
                 for (o in item){
-                    if (o != 'question' && o != 'state'){
+                    if (o != 'question' && o != 'status'){
                         if (o == 'parent'){
                             if (item[o] !== undefined && item[o] >= 0){
                                 controls.push(
@@ -104,7 +104,14 @@ Lerajzolhatom = function($, container){
                                 ) 
                             }
                         }else{
-                            controls.push($('<button>').text(o).attr('value', o).click(function(e){                                
+                            var label = o;
+                            if (o == 'yep'){
+                                label = 'Igen';
+                            }
+                            if (o == 'nope'){
+                                label = 'Nem';
+                            }
+                            controls.push($('<button>').text(label).addClass(o).attr('value', o).click(function(e){                                
                                 Question.next($(this).attr('value'));
                             }))
                         }
@@ -115,7 +122,7 @@ Lerajzolhatom = function($, container){
             }
             return {
                 next: function(value){
-                    if (value != 'question' && value != 'state'){
+                    if (value != 'question' && value != 'status'){
                         var id;
                         if (value === undefined){
                             child = get_question(0);

@@ -1,49 +1,49 @@
 {
     "questions" : {
         "question": "A kép, amiről másolsz, Public Domain (PD, vagy CC0) licensz alatt van?",
-        "Igen": {
+        "yep": {
             "question": "A public domainben lévő képek szabadon felhasználhatók bármilyen célra. Bár nem kötelező, illik jelezni a kép eredeti alkotóját.",
-            "state": "success"
+            "status": "success"
         },
-        "Nem": {
+        "nope": {
             "question": "A kép, amiről másolsz, Creative Commons (CC) licensz alatt van?",
-            "Igen": {
+            "yep": {
                 "question": "Szerepel a licenszben az ND (no derivatives)?",
-                "Igen": {
+                "yep": {
                     "question": "A szerző nem engedélyezi a képe átdoglozását, keress másik képet",
                     "status": "failed"
                 },
-                "Nem": {
+                "nope": {
                     "question": "Szerepel a licenszben az NC (no commercial)?",
-                    "Igen": {
+                    "yep": {
                         "question": "Másolhatod, illetve átdolgozhatod a művet, de nem használhatod kereskedelmi célokra, és természetesen meg kell nevezned a mű eredeti alkotóját is. (Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.)",
                         "status": "success"
                     },
-                    "Nem": {
+                    "nope": {
                         "question": "Másolhatod, illetve átdolgozhatod a művet, de meg kell nevezned a mű eredeti alkotóját is.  (Ha a licenszben szerepel az SA (share alike), akkor csak ugyanilyen licensz alatt teheted közzé a saját művedet is.)",
                         "status": "success"
                     }
                 }
             },
-            "Nem": {
+            "nope": {
                 "question": "A kép eredeti alkotója engedélyezte a képe felhasználását?",
-                "Igen": {
+                "yep": {
                     "question": "Ha rendelkezel az alkotó engedélyével, természetesen lerajzolhatod a képet, de illik ilyenkor is linkelni az eredeti képet.",
                     "status": "success"
                 },
-                "Nem": {
+                "nope": {
                     "question": "A kép szerzője több, mint 70 évvel ezelőtt meghalt?",
-                    "Igen": {
+                    "yep": {
                         "question": "A szerző halála után 70 évvel a művei szabad felhasználásúvá válnak, így te is szabadon felhasználhatod őket. Az eredeti alkotót mindenesetre illik megnevezni.",
                         "status": "success"
                     },
-                    "Nem": {
+                    "nope": {
                         "question": "100%-ig teljesen holtbizos, hogy nem használod fel sehol a képről készült rajzodat? (pl, kiállítás, eladás, elcserélés egy csokira, stb)",
-                        "Igen": {
+                        "yep": {
                             "question": "A szerzői jogi törvény lehetőséget biztosít neked, hogy személyes használatra lemásold a képet, de csak és kizárólag akkor, ha ez sem közvetlenül, sem közvetve nem szolgál anyagi érdekeket.",
                             "status": "allowed"
                         },
-                        "Nem": {
+                        "nope": {
                             "question": "Keress másik képet!",
                             "status": "failed"
                         }
