@@ -6,7 +6,7 @@ html, body {
 }
 body{
    font-family: sans;
-   background-color: #444; 
+   background-color: #444444; 
    background-image: url(images/bkg.png);
    background-repeat: no-repeat;
    background-position: top center;
@@ -98,11 +98,13 @@ button{
     background-image: -webkit-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
     background-image: -ms-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(89,89,89)),color-stop(1, rgb(107,107,107)));
-    z-index:0;    
+    z-index:0;   
+    outline: none;
 }
 button:focus,
 button:hover{
-   color:#f8f8f8;
+   color:#f8f8f8;   
+   box-shadow: inset 1px 1px 4px #888, 0 0 5px #333;    
    background-image: linear-gradient(bottom, rgb(107,107,107) 0%, rgb(89,89,89) 100%);
     background-image: -o-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(89,89,89) 100%);
     background-image: -moz-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(89,89,89) 100%);
@@ -110,7 +112,8 @@ button:hover{
     background-image: -ms-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(89,89,89) 100%);
     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(107,107,107)),color-stop(1, rgb(89,89,89)));
 }
-button:active{
+button:active{ 
+    outline: none;
     top: 1px;
 }
 a:focus,
@@ -245,6 +248,12 @@ button.nope{
 button.nope:focus,
 button.nope:hover{
     color: #ffffff;
+}
+button.yep:active{       
+   box-shadow: inset 1px 1px 4px #888, 0 0 15px #44cc44;
+}
+button.nope:active{       
+   box-shadow: inset 1px 1px 4px #888, 0 0 15px #dd4444;
 }
 .fb-recommend{
   float: right;
