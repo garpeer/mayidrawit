@@ -5,7 +5,8 @@ html, body {
     min-height: 100%;
 }
 body{
-   font-family: sans-serif;
+   font-family: 'Exo', sans-serif;
+   font-weight: 400;
    font-size: 110%;
    background-color: #444444; 
    background-image: url(images/bkg.png);
@@ -40,7 +41,7 @@ body{
 h1{
     float: left;
     color: #aaa;
-    font-weight: normal;
+    font-weight: 700;
     font-size: 14px;
     margin: 0;
     line-height: 21px;
@@ -82,6 +83,8 @@ a{
     display: block;
 }
 button{
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
     position: relative;
     cursor: pointer;
     padding: 10px 15px;
@@ -169,7 +172,7 @@ h1 a{
 }
 #container.failed p{
     color:#f00;
-    font-weight: bold;
+    font-weight: 700;
     text-align: center;
     font-size: 110%;
 }
@@ -191,7 +194,6 @@ h1 a{
     text-align: center;
 }
 .start-wrapper button{
-    font-weight: bold;
     color: #ccc;
     text-shadow: -1px -1px 2px #222;
     -webkit-text-shadow: -1px -1px 2px #222;
@@ -227,6 +229,9 @@ h1 a{
 .controls button{
     margin: 0 15px;
 }
+button.back{
+    font-weight: 400;
+}
 button.yep,
 button.nope{    
     text-shadow: -1px -1px 0 #333;
@@ -235,7 +240,6 @@ button.nope{
     -o-text-shadow: -1px -1px 0 #333;
 }
 button.yep{
-    font-weight: bold;
     color: #44cc44;
 }
 button.yep:focus,
@@ -243,7 +247,6 @@ button.yep:hover{
     color: #fff;
 }
 button.nope{
-    font-weight: bold;
     color: #dd4444;
 }
 button.nope:focus,

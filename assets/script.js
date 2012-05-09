@@ -111,7 +111,7 @@ Lerajzolhatom = function($, container){
                         if (o == 'parent'){
                             if (item[o] !== undefined && item[o] >= 0){
                                 controls.push(
-                                    $('<button>').text('Vissza').click(function(e){
+                                    $('<button>').addClass('back').text('Vissza').click(function(e){
                                         Question.back();
                                     })
                                 ) 
