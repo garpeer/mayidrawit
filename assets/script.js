@@ -1,12 +1,14 @@
 Lerajzolhatom = function($, container){
     var options = {        
-        questionfile: 'assets/questions.json?v=2'
+        questionfile: 'assets/questions.json'
     }
     
     var Display;
     var Question;
     var History = window.History;
     
+    $.get('assets/images/ajax-loader.gif');
+        
     container.append($("<div>").addClass('start-wrapper').append($('<button>').addClass('start').text('Kezdjük').click(function(){
         startup();
     })));

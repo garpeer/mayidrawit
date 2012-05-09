@@ -124,7 +124,7 @@ h1 a{
 #container{
     min-width: 160px;
     padding: 10px;
-    max-width: 500px;
+    max-width: 450px;
     min-height: 55px;
     margin: 40px auto;
     font-size: 90%;
@@ -133,6 +133,7 @@ h1 a{
     -webkit-text-shadow: 1px 1px 1px #222;
     -moz-text-shadow: 1px 1px 1px #222;
     -o-text-shadow: 1px 1px 1px #222;
+    line-height: 130%;
 }
 .intro p{
     text-align: center;
@@ -142,7 +143,7 @@ h1 a{
     margin-top: 0;
 }
 #container.waiting{
-    background: url(ajax-loader.gif) center no-repeat; /*http://ajaxload.info*/
+    background: url(images/ajax-loader.gif) center no-repeat; /*http://ajaxload.info*/
 }
 #container.failed{    
     max-width: 380px;
