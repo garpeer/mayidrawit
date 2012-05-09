@@ -53,3 +53,5 @@ RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
   ExpiresByType application/javascript    "access plus 1 year"
 
 </IfModule>
+
+AddType text/cache-manifest .appcache
