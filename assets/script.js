@@ -28,7 +28,7 @@ Lerajzolhatom = function($, container){
     
     if (History.enabled ) { 
             var initial_state = History.getState();
-            if (initial_state.data.question>0){
+            if (initial_state.data.question !== undefined){
                 startup(initial_state.data.question);
             }
             History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
@@ -142,7 +142,7 @@ Lerajzolhatom = function($, container){
                 },
                 next: function(value){
                     if (value != 'question' && value != 'status'){
-                        var id;
+                        var id;			
                         if (value === undefined){
                             child = get_question(0);
                             id = 0;
@@ -152,7 +152,7 @@ Lerajzolhatom = function($, container){
                             var child = get_question(id);
                             
                         }
-                        if (child !== undefined){     
+                        if (child !== undefined){
                             current = id;
                             History.pushState({question:id},null, "?question="+id);
                             //show(child);

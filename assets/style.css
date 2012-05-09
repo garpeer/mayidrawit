@@ -31,12 +31,18 @@ body{
     -moz-text-shadow: -1px -1px 1px #111;
     -o-text-shadow: -1px -1px 1px #111;
 }
+.wrapper{
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 960px;
+}
 h1{
+    float: left;
     color: #aaa;
     font-weight: normal;
     font-size: 14px;
-    margin: 0 auto;
-    max-width: 960px;
+    margin: 0;
+    line-height: 21px;
 }
 a{    
     text-decoration: none;
@@ -92,12 +98,17 @@ button{
     background-image: -webkit-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
     background-image: -ms-linear-gradient(bottom, rgb(89,89,89) 0%, rgb(107,107,107) 100%);
     background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(89,89,89)),color-stop(1, rgb(107,107,107)));
-    z-index:0;
-    
+    z-index:0;    
 }
 button:focus,
 button:hover{
-   color:#f8f8f8; 
+   color:#f8f8f8;
+   background-image: linear-gradient(bottom, rgb(107,107,107) 0%, rgb(89,89,89) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(89,89,89) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(89,89,89) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(89,89,89) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(89,89,89) 100%);
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(107,107,107)),color-stop(1, rgb(89,89,89)));
 }
 button:active{
     top: 1px;
@@ -224,7 +235,7 @@ button.yep{
 }
 button.yep:focus,
 button.yep:hover{
-    color: #44ff44;
+    color: #fff;
 }
 button.nope{
     font-weight: bold;
@@ -232,7 +243,10 @@ button.nope{
 }
 button.nope:focus,
 button.nope:hover{
-    color: #ff4444;
+    color: #ffffff;
+}
+.fb-recommend{
+  float: right;
 }
 @media all and (max-width: 400px) {
     #container{
@@ -261,4 +275,9 @@ button.nope:hover{
         max-width: 150px;
         white-space: normal;
     }
+    .fb-recommend{
+      margin-top: 8px;
+      float: none;
+    }
 }
+
