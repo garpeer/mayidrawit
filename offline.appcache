@@ -1,10 +1,10 @@
 CACHE MANIFEST
-# 2012-05-09:5
+# 2012-05-09:7
 
 CACHE:
 index.html
-assets/style.201205094.css
-assets/script.201205094.js
+assets/style.20120509-7.css
+assets/script.20120509-7.js
 assets/questions.json
 assets/jquery-1.7.2.min.js
 assets/jquery.history.js
