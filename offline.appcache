@@ -1,14 +1,24 @@
 CACHE MANIFEST
-# 2012-05-09:2
+# 2012-05-09:4
 
 CACHE:
 index.html
-assets/style.*.css
-assets/script.*.js
-assets/style.20120509.css
+assets/style.201205094.css
+assets/script.201205094.js
 assets/questions.json
 assets/jquery-1.7.2.min.js
 assets/jquery.history.js
+#Images
+assets/images/ajax-loader.gif
+assets/images/bkg.png
+assets/images/cc_icon.png
+assets/images/nc.png
+assets/images/nd.png
+assets/images/public_domain_icons.png
+assets/images/sa.png
+assets/images/monsieur/palette.png
+assets/images/monsieur/reader.png
+assets/images/monsieur/stop.png
 
 NETWORK:
 *
