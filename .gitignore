@@ -1,4 +1,5 @@
 /nbproject/private/
-assets/history.js/*
-*.min.js
-*.min.css
+*~
+*.bak
+*.old
+*.diff
